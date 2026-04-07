@@ -1,0 +1,306 @@
+/* Import Font Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- Variabel Global --- */
+:root {
+    --primary-color: #48B763;
+    --primary-dark: #3a9650;
+    --blue-color: #3b82f6;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --text-dark: #0f172a;
+    --text-muted: #64748b;
+    --bg-page: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-input: #f8fafc;
+    --border-color: #e2e8f0;
+}
+
+/* --- Reset & Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- Layout Container --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* --- Animasi --- */
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(15px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* --- Top Navigation --- */
+.admin-nav {
+    background-color: var(--bg-card);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-brand h1 {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-brand p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* --- Kartu Statistik (Grid) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--bg-card);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.03);
+    border: 1px solid var(--border-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+}
+
+.stat-total::before { background-color: var(--blue-color); }
+.stat-menunggu::before { background-color: var(--warning-color); }
+.stat-proses::before { background-color: var(--primary-color); }
+.stat-selesai::before { background-color: var(--primary-dark); }
+
+.stat-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .angka {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* --- Card General --- */
+.card {
+    background-color: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--border-color);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- Filter Form --- */
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: flex-end;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-control {
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-control:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(72, 183, 99, 0.1);
+}
+
+.filter-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* --- Tombol --- */
+.btn {
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary { background: var(--primary-color); color: white; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+.btn-secondary { background: #e2e8f0; color: var(--text-dark); }
+.btn-secondary:hover { background: #cbd5e1; }
+
+.btn-danger { background: var(--danger-color); color: white; padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+.btn-danger:hover { background: #dc2626; }
+
+.btn-outline { background: transparent; border: 1px solid var(--border-color); color: var(--text-dark); }
+.btn-outline:hover { background: var(--bg-input); border-color: #cbd5e1; }
+
+.btn-action { padding: 0.5rem 0.8rem; font-size: 0.8rem; }
+
+/* --- Table Styles --- */
+.table-responsive { overflow-x: auto; }
+
+.modern-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 900px;
+}
+
+.modern-table th, .modern-table td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    vertical-align: top;
+}
+
+.modern-table th {
+    background-color: var(--bg-input);
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.modern-table tbody tr:hover { background-color: #f8fafc; }
+
+.modern-table a.link-foto {
+    color: var(--blue-color);
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* --- Badges --- */
+.badge {
+    padding: 0.35rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+.badge-menunggu { background-color: #fef3c7; color: #d97706; }
+.badge-proses { background-color: #dbeafe; color: #2563eb; }
+.badge-selesai { background-color: #dcfce7; color: #16a34a; }
+
+/* --- Pagination --- */
+.pagination {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.pagination span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-right: 1rem;
+}
+
+.page-link {
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.page-link:hover { background: var(--bg-input); }
+.page-link.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}

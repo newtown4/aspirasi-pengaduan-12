@@ -1,0 +1,244 @@
+/* Import Font Poppins dari Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* --- Variabel Global --- */
+:root {
+    --primary-color: #48B763;
+    --primary-dark: #3a9650;
+    --primary-light: #e8f5e9;
+    --text-dark: #0f172a; /* Warna teks lebih pekat dan premium */
+    --text-muted: #64748b;
+    --bg-page: #f1f5f9; /* Latar belakang halaman yang sedikit lebih kontras */
+    --bg-input: #f8fafc;
+    --border-color: #e2e8f0;
+}
+
+/* --- Reset & Base --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    /* Latar belakang dengan tekstur sangat halus (opsional) atau warna solid elegan */
+    background-color: var(--bg-page);
+    background-image: radial-gradient(circle at 50% 0%, #ffffff 0%, transparent 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-dark);
+}
+
+/* --- Animasi Masuk --- */
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* --- Layout Modal --- */
+.modal-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 440px; /* Sedikit lebih ramping agar terlihat lebih proporsional */
+    border-radius: 20px;
+    /* Bayangan modern: tajam di bawah, menyebar luas di sekitar */
+    box-shadow: 
+        0 4px 6px -1px rgba(0, 0, 0, 0.05), 
+        0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.8); /* Detail border putih untuk kesan glass/tajam */
+    overflow: hidden;
+    animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.modal-left {
+    display: none !important; 
+}
+
+/* Bagian Kanan (Form) */
+.modal-right {
+    padding: 3.5rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    letter-spacing: -0.5px; /* Teks lebih rapat ala font modern */
+}
+
+/* Tambahkan pseudo-element untuk garis bawah aksen yang elegan */
+h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 1rem auto 2.5rem;
+    border-radius: 2px;
+}
+
+/* --- Alert / Pesan Error --- */
+.error-msg {
+    background-color: #fef2f2;
+    color: #dc2626;
+    padding: 1rem;
+    border-radius: 10px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    border: 1px solid #fecaca;
+}
+
+/* --- Form Elements --- */
+.input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.input-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background-color: var(--bg-input);
+    border: 1.5px solid var(--border-color);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+.input-group input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* Efek FOKUS Modern: Latar jadi putih, border hijau, dan ring bayangan hijau tipis */
+.input-group input:focus {
+    background-color: #ffffff;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(72, 183, 99, 0.15);
+}
+
+.input-group input:hover:not(:focus) {
+    border-color: #cbd5e1;
+}
+
+/* Modifikasi input saat terkunci */
+.input-group input.readonly-input {
+    background-color: var(--bg-page);
+    color: var(--text-muted);
+    border-color: transparent;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* --- Tombol Utama (Login) --- */
+button {
+    width: 100%;
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    /* Gradien halus untuk kesan kedalaman */
+    background: linear-gradient(180deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    /* Colored Shadow: Bayangan menggunakan warna hijau, bukan hitam */
+    box-shadow: 0 8px 20px -6px rgba(72, 183, 99, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px rgba(72, 183, 99, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px -4px rgba(72, 183, 99, 0.4);
+}
+
+button:disabled {
+    background: #cbd5e1;
+    color: #94a3b8;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+/* --- Tombol Tambahan (Jika ada tombol Google/Lainnya) --- */
+.google-btn {
+    width: 100%;
+    padding: 0.875rem 1.25rem;
+    background-color: #ffffff;
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.google-btn:hover {
+    background-color: var(--bg-input);
+    border-color: #cbd5e1;
+}
+
+/* --- Responsif --- */
+@media (max-width: 480px) {
+    .modal-container {
+        border-radius: 0;
+        min-height: 100vh;
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        align-items: center;
+    }
+    
+    .modal-right {
+        padding: 2rem;
+        width: 100%;
+    }
+}
